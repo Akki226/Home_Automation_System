@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "appsync.home.automation"
+        minSdk 19
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true   // Obfuscate and minify codes
+            shrinkResources true // Remove unused resourcesexcel
+            debuggable false
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled true   // Obfuscate and minify codes
+            shrinkResources true // Remove unused resourcesexcel
+
+
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    buildscript {
+        configurations.all {
+            resolutionStrategy {
+                force 'net.sf.proguard:proguard-gradle:5.3.3'
+            }
+        }
+    }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'androidx', android_life
+        it.resValue 'string', 'androidx', android_life
+        it.buildConfigField 'String', 'android_name', android_name
+        it.resValue 'string', 'android_name', android_name
+    }
+
+    configurations {
+        compile.exclude group: "junit", module: "junit"
+    }
+
+    configurations {
+        cleanedAnnotations
+        compile.exclude group: 'org.jetbrains', module: 'annotations'
+    }
+
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+//    User libraries
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.github.AppSync-ai:AppSync:61'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
+
+//    for animation
+    implementation 'com.github.florent37:viewanimator:1.1.0'
+    implementation 'com.appolica:flubber:1.0.1'
+
+//    for image processing
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+//    alternative of retrofit
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'cz.msebera.android:httpclient:4.5.8'
+
+//    Firebase Libs
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    implementation platform('com.google.firebase:firebase-bom:30.3.1')
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx'
+
+//    month and year picker
+    implementation 'com.whiteelephant:monthandyearpicker:1.3.0'
+
+//    swiper
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+
+//    image compressor
+    implementation 'id.zelory:compressor:2.1.1'
+}
+apply plugin: 'com.google.gms.google-services'

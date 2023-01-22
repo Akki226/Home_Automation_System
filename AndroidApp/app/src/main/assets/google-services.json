@@ -1,0 +1,7 @@
+{
+  "firebase_key" : "key_from_firebase_console_here",
+  "base_url" : "",
+  "app_name" : "Home Automation",
+  "pkg_id" : "appsync.home.automation",
+  "google_play_url" : "https://play.google.com/store/apps/details?id="
+}

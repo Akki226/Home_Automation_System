@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="8dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true">
+
+            <ImageView
+                android:id="@+id/rooms_img"
+                android:layout_width="61dp"
+                android:layout_height="62dp"
+                android:src="@drawable/rooms_ico" />
+
+            <TextView
+                android:id="@+id/title_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/new_font"
+                android:text="Rooms"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:textStyle="normal" />
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
